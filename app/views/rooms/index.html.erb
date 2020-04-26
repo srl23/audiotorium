@@ -1,0 +1,4 @@
+<% unless current_user.nil? %>
+  <%=link_to "Create a Room", new_room_path%>
+<% end %>
+<%=render @rooms %>

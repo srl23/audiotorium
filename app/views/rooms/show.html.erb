@@ -1,0 +1,9 @@
+<h1><%= @room.name %></h1>
+<div style="width: 50%; margin-left: auto; margin-right: auto; border: 1px solid black; overflow: scroll">
+  <div  id="messages" data-room-id="<%= @room.id %>">
+    <%= render @room.messages %>
+  </div>
+  <form>
+    <input id='send_box' type=text'/>
+  </form>
+</div>

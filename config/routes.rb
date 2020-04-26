@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :messages
+  root to: "rooms#index"
   resources :rooms
   devise_for :users
   mount ActionCable.server => '/cable'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -66,3 +66,774 @@ Migrating to CreateJoinTableRoomUser (20200425004040)
   [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (4.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(883958594580746580)[0m
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-04-25 21:05:08 -0400
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 19.3ms | Allocations: 1860)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srl23/Development/audiotorium/public/packs
+[Webpacker] Hash: 134710964e20d89362f6
+Version: webpack 4.43.0
+Time: 7391ms
+Built at: 04/25/2020 9:05:19 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-e84fdc73c2e246653896.js    147 KiB  application  [emitted] [immutable]  application
+js/application-e84fdc73c2e246653896.js.map    164 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-e84fdc73c2e246653896.js js/application-e84fdc73c2e246653896.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 186 bytes {application} [built]
+[./app/javascript/channels/chatroom_channel.js] 1.11 KiB {application} [optional] [built]
+[./app/javascript/channels/consumer.js] 265 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 4 hidden modules
+
+Completed 500 Internal Server Error in 10768ms (ActiveRecord: 5.2ms | Allocations: 29269)
+
+
+  
+ActionView::Template::Error (undefined method `nil' for nil:NilClass):
+    10:   </head>
+    11: 
+    12:   <body>
+    13:     <% unless current_user.nil %>
+    14:       <%= link_to('Log Out', destroy_user_session_path, method: :delete) %>
+    15:       <% end %>
+    16:     <%= yield %>
+  
+app/views/layouts/application.html.erb:13
+Started GET "/" for ::1 at 2020-04-25 21:05:54 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 937)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.3ms | Allocations: 5438)
+
+
+Started GET "/" for ::1 at 2020-04-25 21:05:58 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 804)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 1.9ms | Allocations: 4244)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-04-25 21:06:56 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.8ms | Allocations: 200)
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 513)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 63.3ms | Allocations: 7444)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 111ms (Views: 83.8ms | ActiveRecord: 9.5ms | Allocations: 16241)
+
+
+Started POST "/users" for ::1 at 2020-04-25 21:07:07 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"io5G3OCU7pdl+SApE6e4V7NnWZQxYRILApl+XPHQAKkC5Su2xYnME5fyIt5v+Rdo4GcSvXn+pO7+K8pVngiAsQ==", "user"=>{"email"=>"potato@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (5.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "potato@gmail.com"], ["encrypted_password", "$2a$11$vbFU58bCREaSvwZP1hahj.rbo/TrY0KWDeOfi5sZP1XTtFpzVRgU."], ["created_at", "2020-04-26 01:07:07.215551"], ["updated_at", "2020-04-26 01:07:07.215551"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 170ms (ActiveRecord: 6.8ms | Allocations: 7653)
+
+
+Started GET "/" for ::1 at 2020-04-25 21:07:07 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/rooms/index.html.erb:1
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1966)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 1.1ms | Allocations: 5428)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-04-25 21:07:12 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Akq0uwR12fzUq463RIKALldg1+PjAW5t+F+fxVTtUkWKIdnRIWj7eCagjEA43C8RBGCcyque2IgE7SvMOzXSXQ=="}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 3.3ms | Allocations: 2761)
+
+
+Started GET "/" for ::1 at 2020-04-25 21:07:12 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 794)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.3ms | Allocations: 4239)
+
+
+Started GET "/" for ::1 at 2020-04-25 21:08:44 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (1.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 912)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 26.6ms | ActiveRecord: 1.2ms | Allocations: 5402)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-04-25 21:08:49 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 191)
+  Rendered devise/shared/_links.html.erb (Duration: 5.0ms | Allocations: 458)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 13.0ms | Allocations: 2454)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.0ms | Allocations: 7105)
+
+
+Started POST "/users" for ::1 at 2020-04-25 21:09:07 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"uU8Tu2mc4uo4hggdpPq4dsVWv3VaG5/rUZqpAz5tA8AVbD619yCycdu/aiRv9sySi7b9bICvP24SXqc4AWsHig==", "user"=>{"name"=>"shishkebob", "email"=>"ass@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (3.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "ass@gmail.com"], ["encrypted_password", "$2a$11$eCDdV0aLj0glHjYivpaLVuFxp/J8xWbN76J8c/5LShKvJzs79PLXC"], ["created_at", "2020-04-26 01:09:08.010419"], ["updated_at", "2020-04-26 01:09:08.010419"], ["name", "shishkebob"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 188ms (ActiveRecord: 5.4ms | Allocations: 6304)
+
+
+Started GET "/" for ::1 at 2020-04-25 21:09:08 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/rooms/index.html.erb:1
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 1604)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 0.5ms | Allocations: 5048)
+
+
+Started GET "/rooms/new" for ::1 at 2020-04-25 21:09:09 -0400
+Processing by RoomsController#new as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering rooms/new.html.erb within layouts/application
+  Rendered rooms/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 563)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 21.4ms | ActiveRecord: 4.0ms | Allocations: 7630)
+
+
+Started POST "/rooms" for ::1 at 2020-04-25 21:09:12 -0400
+Processing by RoomsController#create as HTML
+  Parameters: {"authenticity_token"=>"12Wh5CwtLjVkBfeAjoF+L0fl9DjJZETzp+Ci+8TDESD1OVxy7W4FE+AT5Xi0+qRe6nLWFwJUl/rhm+u0PxwS9A==", "room"=>{"name"=>"wee land"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[36mRoom Create (2.4ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "wee land"], ["user_id", 2], ["created_at", "2020-04-26 01:09:12.400967"], ["updated_at", "2020-04-26 01:09:12.400967"]]
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:13:in `create'
+No template found for RoomsController#create, rendering head :no_content
+Completed 204 No Content in 72ms (ActiveRecord: 4.4ms | Allocations: 12652)
+
+
+Started GET "/rooms/" for ::1 at 2020-04-25 21:09:16 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/rooms/index.html.erb:1
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of rooms/_room.html.erb [1 times] (Duration: 0.6ms | Allocations: 167)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 25.4ms | Allocations: 3423)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 35.0ms | ActiveRecord: 3.4ms | Allocations: 6889)
+
+
+Started GET "/rooms/1" for ::1 at 2020-04-25 21:09:18 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  [1m[36mMessage Load (1.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 3)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 203)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 13.0ms | ActiveRecord: 6.4ms | Allocations: 9148)
+
+
+Started GET "/cable" for ::1 at 2020-04-25 21:09:18 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-25 21:09:18 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8y)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel#send_message({"message"=>"potato"})
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (4.1ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "potato"], ["user_id", 2], ["room_id", 1], ["created_at", "2020-04-26 01:09:21.519955"], ["updated_at", "2020-04-26 01:09:21.519955"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 86919857-c8ed-4569-9220-6308dc8d8974) to Async(default) with arguments: #<GlobalID:0x00007f8a245ce1e8 @uri=#<URI::GID gid://audiotorium/Message/1>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [86919857-c8ed-4569-9220-6308dc8d8974] Performing MessageJob (Job ID: 86919857-c8ed-4569-9220-6308dc8d8974) from Async(default) enqueued at 2020-04-26T01:09:21Z with arguments: #<GlobalID:0x00007f8a24590280 @uri=#<URI::GID gid://audiotorium/Message/1>>
+[ActiveJob] [MessageJob] [86919857-c8ed-4569-9220-6308dc8d8974] Error performing MessageJob (Job ID: 86919857-c8ed-4569-9220-6308dc8d8974) from Async(default) in 8.03ms: NameError (uninitialized constant MessageJob::ActiveCable
+Did you mean?  ActionCable):
+/home/srl23/Development/audiotorium/app/jobs/message_job.rb:5:in `perform'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:39:in `block in perform_now'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications.rb:180:in `block in instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications.rb:180:in `instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:45:in `block in tag_logger'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:45:in `tag_logger'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:38:in `perform_now'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:24:in `block in execute'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/reloader.rb:72:in `block in wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/reloader.rb:71:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:22:in `execute'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+ChatroomChannel#send_message({"message"=>"adsgwargaerhre"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "adsgwargaerhre"], ["user_id", 2], ["room_id", 1], ["created_at", "2020-04-26 01:09:25.258300"], ["updated_at", "2020-04-26 01:09:25.258300"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 098d8dff-9650-4b6b-875f-cdfa0977e966) to Async(default) with arguments: #<GlobalID:0x00007f8a24450e38 @uri=#<URI::GID gid://audiotorium/Message/2>>
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [098d8dff-9650-4b6b-875f-cdfa0977e966] Performing MessageJob (Job ID: 098d8dff-9650-4b6b-875f-cdfa0977e966) from Async(default) enqueued at 2020-04-26T01:09:25Z with arguments: #<GlobalID:0x00007f8a243bb4f0 @uri=#<URI::GID gid://audiotorium/Message/2>>
+[ActiveJob] [MessageJob] [098d8dff-9650-4b6b-875f-cdfa0977e966] Error performing MessageJob (Job ID: 098d8dff-9650-4b6b-875f-cdfa0977e966) from Async(default) in 7.77ms: NameError (uninitialized constant MessageJob::ActiveCable
+Did you mean?  ActionCable):
+/home/srl23/Development/audiotorium/app/jobs/message_job.rb:5:in `perform'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:39:in `block in perform_now'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications.rb:180:in `block in instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications.rb:180:in `instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:45:in `block in tag_logger'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:45:in `tag_logger'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:38:in `perform_now'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:24:in `block in execute'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/reloader.rb:72:in `block in wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/reloader.rb:71:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:22:in `execute'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+ChatroomChannel#send_message({"message"=>"hbkbjkbkbjkbjkbjkbj"})
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "hbkbjkbkbjkbjkbjkbj"], ["user_id", 2], ["room_id", 1], ["created_at", "2020-04-26 01:09:47.428268"], ["updated_at", "2020-04-26 01:09:47.428268"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 04ee922e-4658-4ebd-9626-8385e7e7d9cc) to Async(default) with arguments: #<GlobalID:0x00007f8a2416f480 @uri=#<URI::GID gid://audiotorium/Message/3>>
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [04ee922e-4658-4ebd-9626-8385e7e7d9cc] Performing MessageJob (Job ID: 04ee922e-4658-4ebd-9626-8385e7e7d9cc) from Async(default) enqueued at 2020-04-26T01:09:47Z with arguments: #<GlobalID:0x00007f8a24122c98 @uri=#<URI::GID gid://audiotorium/Message/3>>
+[ActiveJob] [MessageJob] [04ee922e-4658-4ebd-9626-8385e7e7d9cc] Error performing MessageJob (Job ID: 04ee922e-4658-4ebd-9626-8385e7e7d9cc) from Async(default) in 7.59ms: NameError (uninitialized constant MessageJob::ActiveCable
+Did you mean?  ActionCable):
+/home/srl23/Development/audiotorium/app/jobs/message_job.rb:5:in `perform'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:39:in `block in perform_now'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications.rb:180:in `block in instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications.rb:180:in `instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:45:in `block in tag_logger'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:45:in `tag_logger'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:38:in `perform_now'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:24:in `block in execute'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/reloader.rb:72:in `block in wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/reloader.rb:71:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:22:in `execute'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+Started GET "/rooms/1" for ::1 at 2020-04-25 21:09:49 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [3 times] (Duration: 12.3ms | Allocations: 2307)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 15.4ms | Allocations: 2569)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 29.8ms | ActiveRecord: 5.8ms | Allocations: 9995)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-25 21:09:49 -0400
+There was an exception - LoadError(Could not load the 'postgres' Action Cable pubsub adapter. Ensure that the adapter is spelled correctly in config/cable.yml and that you've added the necessary adapter gem to your Gemfile.)
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/bootsnap-1.4.6/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `require'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/bootsnap-1.4.6/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `block in require_with_bootsnap_lfi'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/bootsnap-1.4.6/lib/bootsnap/load_path_cache/loaded_features_index.rb:89:in `register'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/bootsnap-1.4.6/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require_with_bootsnap_lfi'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/bootsnap-1.4.6/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:41:in `rescue in require'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/bootsnap-1.4.6/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:27:in `require'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/zeitwerk-2.3.0/lib/zeitwerk/kernel.rb:23:in `require'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/server/configuration.rb:34:in `pubsub_adapter'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/server/base.rb:83:in `block in pubsub'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/server/base.rb:83:in `synchronize'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/server/base.rb:83:in `pubsub'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/connection/base.rb:51:in `pubsub'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/channel/streams.rb:114:in `pubsub'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/channel/streams.rb:108:in `block in stop_all_streams'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/channel/streams.rb:107:in `each'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/channel/streams.rb:107:in `stop_all_streams'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:429:in `block in make_lambda'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:274:in `block in simple'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:518:in `block in invoke_after'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:518:in `each'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:518:in `invoke_after'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:84:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/engine.rb:68:in `block (3 levels) in <class:Engine>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/channel/base.rb:191:in `unsubscribe_from_channel'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/connection/subscriptions.rb:50:in `remove_subscription'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/connection/subscriptions.rb:63:in `block in unsubscribe_from_all'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/connection/subscriptions.rb:63:in `each'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/connection/subscriptions.rb:63:in `unsubscribe_from_all'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/connection/base.rb:186:in `handle_close'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/server/worker.rb:59:in `block in invoke'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/server/worker.rb:41:in `block in work'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `block in with_database_connections'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `block in tag'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/connection/tagged_logger_proxy.rb:24:in `tag'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/server/worker/active_record_connection_management.rb:16:in `with_database_connections'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/engine.rb:62:in `block (4 levels) in <class:Engine>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/engine.rb:57:in `block (3 levels) in <class:Engine>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/server/worker.rb:40:in `work'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/server/worker.rb:58:in `invoke'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/actioncable-6.0.2.2/lib/action_cable/server/worker.rb:53:in `block in async_invoke'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+Started GET "/cable" for ::1 at 2020-04-25 21:09:49 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-25 21:09:49 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8y)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel#send_message({"message"=>"dasdasfeg"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "dasdasfeg"], ["user_id", 2], ["room_id", 1], ["created_at", "2020-04-26 01:10:29.152066"], ["updated_at", "2020-04-26 01:10:29.152066"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: d882d1bb-f4a7-44a9-8e4a-eb244b27ea2e) to Async(default) with arguments: #<GlobalID:0x00007f8a24ae4808 @uri=#<URI::GID gid://audiotorium/Message/4>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [d882d1bb-f4a7-44a9-8e4a-eb244b27ea2e] Performing MessageJob (Job ID: d882d1bb-f4a7-44a9-8e4a-eb244b27ea2e) from Async(default) enqueued at 2020-04-26T01:10:29Z with arguments: #<GlobalID:0x00007f8a24acdfe0 @uri=#<URI::GID gid://audiotorium/Message/4>>
+[ActiveJob] [MessageJob] [d882d1bb-f4a7-44a9-8e4a-eb244b27ea2e] Error performing MessageJob (Job ID: d882d1bb-f4a7-44a9-8e4a-eb244b27ea2e) from Async(default) in 8.53ms: NameError (uninitialized constant MessageJob::ActiveCable
+Did you mean?  ActionCable):
+/home/srl23/Development/audiotorium/app/jobs/message_job.rb:5:in `perform'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:39:in `block in perform_now'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications.rb:180:in `block in instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications.rb:180:in `instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:45:in `block in tag_logger'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:45:in `tag_logger'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:38:in `perform_now'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:24:in `block in execute'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/reloader.rb:72:in `block in wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/reloader.rb:71:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:22:in `execute'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+Started GET "/cable" for ::1 at 2020-04-25 21:11:44 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-25 21:11:44 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8y)
+  [1m[36mRoom Load (3.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room1_channel
+Started GET "/users/sign_in" for ::1 at 2020-04-25 21:11:55 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 15ms (ActiveRecord: 2.5ms | Allocations: 3724)
+
+
+Started GET "/" for ::1 at 2020-04-25 21:11:55 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/rooms/index.html.erb:1
+  [1m[36mRoom Load (3.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of rooms/_room.html.erb [1 times] (Duration: 3.7ms | Allocations: 165)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 24.6ms | Allocations: 5023)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 44.8ms | ActiveRecord: 6.0ms | Allocations: 12336)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-25 21:11:55 -0400
+ChatroomChannel stopped streaming from room1_channel
+Started GET "/rooms/1" for ::1 at 2020-04-25 21:11:58 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [4 times] (Duration: 22.7ms | Allocations: 3928)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 24.1ms | Allocations: 4329)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 94ms (Views: 41.6ms | ActiveRecord: 8.7ms | Allocations: 17088)
+
+
+Started GET "/cable" for ::1 at 2020-04-25 21:11:58 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-25 21:11:58 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8y)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room1_channel
+ChatroomChannel#send_message({"message"=>"asdasd"})
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (2.5ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "asdasd"], ["user_id", 2], ["room_id", 1], ["created_at", "2020-04-26 01:12:00.510354"], ["updated_at", "2020-04-26 01:12:00.510354"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: a3d2f567-433a-4218-b2e7-947eb2716e5a) to Async(default) with arguments: #<GlobalID:0x00005591edd51450 @uri=#<URI::GID gid://audiotorium/Message/5>>
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [a3d2f567-433a-4218-b2e7-947eb2716e5a] Performing MessageJob (Job ID: a3d2f567-433a-4218-b2e7-947eb2716e5a) from Async(default) enqueued at 2020-04-26T01:12:00Z with arguments: #<GlobalID:0x00007efd30039d08 @uri=#<URI::GID gid://audiotorium/Message/5>>
+[ActiveJob] [MessageJob] [a3d2f567-433a-4218-b2e7-947eb2716e5a] Error performing MessageJob (Job ID: a3d2f567-433a-4218-b2e7-947eb2716e5a) from Async(default) in 8.03ms: NameError (uninitialized constant MessageJob::ActiveCable
+Did you mean?  ActionCable):
+/home/srl23/Development/audiotorium/app/jobs/message_job.rb:5:in `perform'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:39:in `block in perform_now'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/i18n-1.8.2/lib/i18n.rb:313:in `with_locale'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:25:in `block (4 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications.rb:180:in `block in instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/notifications.rb:180:in `instrument'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:24:in `block (3 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:45:in `block in tag_logger'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/tagged_logging.rb:80:in `tagged'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:45:in `tag_logger'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/logging.rb:21:in `block (2 levels) in <module:Logging>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:38:in `perform_now'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:24:in `block in execute'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:112:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/railtie.rb:43:in `block (4 levels) in <class:Railtie>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/reloader.rb:72:in `block in wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/execution_wrapper.rb:88:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/reloader.rb:71:in `wrap'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/railtie.rb:42:in `block (3 levels) in <class:Railtie>'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `instance_exec'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activesupport-6.0.2.2/lib/active_support/callbacks.rb:139:in `run_callbacks'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/execution.rb:22:in `execute'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/activejob-6.0.2.2/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:353:in `run_task'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:342:in `block (3 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `loop'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:325:in `block (2 levels) in create_worker'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `catch'
+/home/srl23/.rvm/gems/ruby-2.7.0/gems/concurrent-ruby-1.1.6/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:324:in `block in create_worker'
+Started GET "/rooms/1" for ::1 at 2020-04-25 21:12:50 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:17:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [5 times] (Duration: 8.2ms | Allocations: 4079)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 13.4ms | Allocations: 4201)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 80ms (Views: 19.8ms | ActiveRecord: 11.3ms | Allocations: 23800)
+
+
+Started GET "/cable" for ::1 at 2020-04-25 21:12:51 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-25 21:12:51 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8y)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room1_channel
+ChatroomChannel#send_message({"message"=>"wewe"})
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (3.1ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "wewe"], ["user_id", 2], ["room_id", 1], ["created_at", "2020-04-26 01:12:53.544004"], ["updated_at", "2020-04-26 01:12:53.544004"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 0a482784-65bf-40de-9a11-f919d023ffe1) to Async(default) with arguments: #<GlobalID:0x00007efd24091078 @uri=#<URI::GID gid://audiotorium/Message/6>>
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [0a482784-65bf-40de-9a11-f919d023ffe1] Performing MessageJob (Job ID: 0a482784-65bf-40de-9a11-f919d023ffe1) from Async(default) enqueued at 2020-04-26T01:12:53Z with arguments: #<GlobalID:0x00007efd24036740 @uri=#<URI::GID gid://audiotorium/Message/6>>
+[ActiveJob] [MessageJob] [0a482784-65bf-40de-9a11-f919d023ffe1]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [0a482784-65bf-40de-9a11-f919d023ffe1]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [0a482784-65bf-40de-9a11-f919d023ffe1]   Rendered messages/_message.html.erb (Duration: 3.1ms | Allocations: 853)
+[ActiveJob] [MessageJob] [0a482784-65bf-40de-9a11-f919d023ffe1] [ActionCable] Broadcasting to room1_channel: {:message=>"<div>\n  <div>\n    <strong>shishkebob</strong>:\n    <br/>\n    wewe\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>shishkebob</strong>:\n    <br/>\n    wewe\n  </div>\n</div>\n"} (via streamed from room1_channel)
+[ActiveJob] [MessageJob] [0a482784-65bf-40de-9a11-f919d023ffe1] Performed MessageJob (Job ID: 0a482784-65bf-40de-9a11-f919d023ffe1) from Async(default) in 10.1ms
+ChatroomChannel#send_message({"message"=>"wweeeew weweewewewewe"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (2.0ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "wweeeew weweewewewewe"], ["user_id", 2], ["room_id", 1], ["created_at", "2020-04-26 01:12:57.967058"], ["updated_at", "2020-04-26 01:12:57.967058"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 57997c53-423c-4420-a121-4a76871ad64e) to Async(default) with arguments: #<GlobalID:0x00007efd1808b7d8 @uri=#<URI::GID gid://audiotorium/Message/7>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [57997c53-423c-4420-a121-4a76871ad64e] Performing MessageJob (Job ID: 57997c53-423c-4420-a121-4a76871ad64e) from Async(default) enqueued at 2020-04-26T01:12:57Z with arguments: #<GlobalID:0x00007efd18057be0 @uri=#<URI::GID gid://audiotorium/Message/7>>
+[ActiveJob] [MessageJob] [57997c53-423c-4420-a121-4a76871ad64e]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [57997c53-423c-4420-a121-4a76871ad64e]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [57997c53-423c-4420-a121-4a76871ad64e]   Rendered messages/_message.html.erb (Duration: 1.9ms | Allocations: 690)
+[ActiveJob] [MessageJob] [57997c53-423c-4420-a121-4a76871ad64e] [ActionCable] Broadcasting to room1_channel: {:message=>"<div>\n  <div>\n    <strong>shishkebob</strong>:\n    <br/>\n    wweeeew weweewewewewe\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>shishkebob</strong>:\n    <br/>\n    wweeeew weweewewewewe\n  </div>\n</div>\n"} (via streamed from room1_channel)
+[ActiveJob] [MessageJob] [57997c53-423c-4420-a121-4a76871ad64e] Performed MessageJob (Job ID: 57997c53-423c-4420-a121-4a76871ad64e) from Async(default) in 8.69ms
+ChatroomChannel#send_message({"message"=>"ass!"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "ass!"], ["user_id", 2], ["room_id", 1], ["created_at", "2020-04-26 01:13:01.662144"], ["updated_at", "2020-04-26 01:13:01.662144"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: dbe95465-6016-48ad-951b-b7d9899da9dc) to Async(default) with arguments: #<GlobalID:0x00007efd143497a8 @uri=#<URI::GID gid://audiotorium/Message/8>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [dbe95465-6016-48ad-951b-b7d9899da9dc] Performing MessageJob (Job ID: dbe95465-6016-48ad-951b-b7d9899da9dc) from Async(default) enqueued at 2020-04-26T01:13:01Z with arguments: #<GlobalID:0x00007efd1431fa48 @uri=#<URI::GID gid://audiotorium/Message/8>>
+[ActiveJob] [MessageJob] [dbe95465-6016-48ad-951b-b7d9899da9dc]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [dbe95465-6016-48ad-951b-b7d9899da9dc]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [dbe95465-6016-48ad-951b-b7d9899da9dc]   Rendered messages/_message.html.erb (Duration: 4.5ms | Allocations: 690)
+[ActiveJob] [MessageJob] [dbe95465-6016-48ad-951b-b7d9899da9dc] [ActionCable] Broadcasting to room1_channel: {:message=>"<div>\n  <div>\n    <strong>shishkebob</strong>:\n    <br/>\n    ass!\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>shishkebob</strong>:\n    <br/>\n    ass!\n  </div>\n</div>\n"} (via streamed from room1_channel)
+[ActiveJob] [MessageJob] [dbe95465-6016-48ad-951b-b7d9899da9dc] Performed MessageJob (Job ID: dbe95465-6016-48ad-951b-b7d9899da9dc) from Async(default) in 10.81ms

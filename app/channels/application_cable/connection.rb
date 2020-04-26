@@ -5,8 +5,8 @@ module ApplicationCable
       self.current_user = get_user
     end
     private
-      def get_user
-        env['warden'].user.presence || reject_unauthorized_connection
-      end
+    def get_user
+      env['warden'].user.presence || reject_unauthorized_connection
+    end
   end
 end

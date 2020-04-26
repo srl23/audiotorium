@@ -1,9 +1,9 @@
 development:
-  adapter: postgres
+  adapter: postgresql
 
 test:
   adapter: test
 
 production:
-  adapter: postgres
-  channel_prefix: audiotorium_production
+  adapter: postgresql
+  channel_prefix: myapp_production
