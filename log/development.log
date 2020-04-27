@@ -3256,3 +3256,695 @@ ChatroomChannel#send_message({"message"=>"yes1"})
 ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    yes1\n  </div>\n</div>\n"} (via streamed from room2_channel)
 ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    yes1\n  </div>\n</div>\n"} (via streamed from room2_channel)
 [ActiveJob] [MessageJob] [f4859780-0915-4373-b994-fb7b06ecf556] Performed MessageJob (Job ID: f4859780-0915-4373-b994-fb7b06ecf556) from Async(default) in 13.78ms
+Started GET "/" for 127.0.0.1 at 2020-04-26 22:02:10 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 2]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of rooms/_room.html.erb [2 times] (Duration: 0.4ms | Allocations: 85)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 1957)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 24.5ms | ActiveRecord: 4.3ms | Allocations: 5456)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-04-26 22:07:15 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rSPkVqUIFD9EdDK2uZOWDSFmGk0KZjs6jYLEzO7jXzDxoSlj7nTRtjmgKtoQleXxPZ8w0bLyV/TOO6ytZjy6VQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 0.2ms | Allocations: 4388)
+
+
+Started GET "/" for ::1 at 2020-04-26 22:07:16 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 2]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of rooms/_room.html.erb [2 times] (Duration: 0.3ms | Allocations: 84)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 1954)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.5ms | Allocations: 5552)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-26 22:07:16 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/users/sign_in" for ::1 at 2020-04-26 22:07:17 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.5ms | Allocations: 76)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 980)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 4800)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-04-26 22:07:23 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"ew+EvEO7Ixz1fttjI9yKUuVFKIb8JQEsNmKApew+c4oImIQL3oSYHs4Yy6RGlnjdEH3Rb6nhJIjaAh3TZsxiBA==", "user"=>{"email"=>"potato@potato.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "potato@potato.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 158ms (ActiveRecord: 0.3ms | Allocations: 2001)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"ew+EvEO7Ixz1fttjI9yKUuVFKIb8JQEsNmKApew+c4oImIQL3oSYHs4Yy6RGlnjdEH3Rb6nhJIjaAh3TZsxiBA==", "user"=>{"email"=>"potato@potato.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 76)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 974)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 153ms (Views: 17.9ms | ActiveRecord: 0.0ms | Allocations: 4686)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-04-26 22:07:28 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"PB62bygLifA2YHrKFkM2dILevM3MLqP+nGwD7RyT2OcGE8G22ncfEzLjWoONDZZGNIxQPexgmDAWr70mDgnJgA==", "user"=>{"email"=>"potato@potato.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "potato@potato.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 161ms (ActiveRecord: 1.6ms | Allocations: 1847)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"PB62bygLifA2YHrKFkM2dILevM3MLqP+nGwD7RyT2OcGE8G22ncfEzLjWoONDZZGNIxQPexgmDAWr70mDgnJgA==", "user"=>{"email"=>"potato@potato.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 76)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 971)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 138ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 4661)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-04-26 22:07:30 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 75)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1222)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 4975)
+
+
+Started POST "/users" for ::1 at 2020-04-26 22:07:38 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"7N5Yo3B2is6UqcymMkW3CqGcQ9AS6Gwwm8thhf3oWaWIHSyniw3EDxtqkv0/39tXaval6HCslmdydN6rxLXm1w==", "user"=>{"name"=>"potato", "email"=>"potato@potato.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (6.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "potato@potato.com"], ["encrypted_password", "$2a$11$cA6/sdWTSW/jJzUCw.2g5epbxpw1QEN.gx4J9ET2EEGO/ZxMW7LcK"], ["created_at", "2020-04-27 02:07:38.514114"], ["updated_at", "2020-04-27 02:07:38.514114"], ["name", "potato"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 174ms (ActiveRecord: 6.6ms | Allocations: 5563)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(potato@potato.com) already exists.
+):
+  
+activerecord (6.0.2.2) lib/active_record/connection_adapters/postgresql_adapter.rb:672:in `exec_params'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/postgresql_adapter.rb:672:in `block (2 levels) in exec_no_cache'
+activesupport (6.0.2.2) lib/active_support/dependencies/interlock.rb:48:in `block in permit_concurrent_loads'
+activesupport (6.0.2.2) lib/active_support/concurrency/share_lock.rb:187:in `yield_shares'
+activesupport (6.0.2.2) lib/active_support/dependencies/interlock.rb:47:in `permit_concurrent_loads'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/postgresql_adapter.rb:671:in `block in exec_no_cache'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract_adapter.rb:718:in `block (2 levels) in log'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract_adapter.rb:717:in `synchronize'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract_adapter.rb:717:in `block in log'
+activesupport (6.0.2.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract_adapter.rb:708:in `log'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/postgresql_adapter.rb:670:in `exec_no_cache'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/postgresql_adapter.rb:653:in `execute_and_clear'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/postgresql/database_statements.rb:98:in `exec_query'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract/database_statements.rb:135:in `exec_insert'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/postgresql/database_statements.rb:132:in `exec_insert'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract/database_statements.rb:166:in `insert'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract/query_cache.rb:22:in `insert'
+activerecord (6.0.2.2) lib/active_record/persistence.rb:375:in `_insert_record'
+activerecord (6.0.2.2) lib/active_record/persistence.rb:933:in `_create_record'
+activerecord (6.0.2.2) lib/active_record/counter_cache.rb:163:in `_create_record'
+activerecord (6.0.2.2) lib/active_record/locking/optimistic.rb:70:in `_create_record'
+activerecord (6.0.2.2) lib/active_record/attribute_methods/dirty.rb:211:in `_create_record'
+activerecord (6.0.2.2) lib/active_record/callbacks.rb:332:in `block in _create_record'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:135:in `run_callbacks'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:827:in `_run_create_callbacks'
+activerecord (6.0.2.2) lib/active_record/callbacks.rb:332:in `_create_record'
+activerecord (6.0.2.2) lib/active_record/timestamp.rb:111:in `_create_record'
+activerecord (6.0.2.2) lib/active_record/persistence.rb:906:in `create_or_update'
+activerecord (6.0.2.2) lib/active_record/callbacks.rb:328:in `block in create_or_update'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:135:in `run_callbacks'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:827:in `_run_save_callbacks'
+activerecord (6.0.2.2) lib/active_record/callbacks.rb:328:in `create_or_update'
+activerecord (6.0.2.2) lib/active_record/timestamp.rb:129:in `create_or_update'
+activerecord (6.0.2.2) lib/active_record/persistence.rb:470:in `save'
+activerecord (6.0.2.2) lib/active_record/validations.rb:47:in `save'
+activerecord (6.0.2.2) lib/active_record/transactions.rb:315:in `block in save'
+activerecord (6.0.2.2) lib/active_record/transactions.rb:375:in `block in with_transaction_returning_status'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract/database_statements.rb:281:in `block in transaction'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract/transaction.rb:280:in `block in within_new_transaction'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract/transaction.rb:278:in `synchronize'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract/transaction.rb:278:in `within_new_transaction'
+activerecord (6.0.2.2) lib/active_record/connection_adapters/abstract/database_statements.rb:281:in `transaction'
+activerecord (6.0.2.2) lib/active_record/transactions.rb:212:in `transaction'
+activerecord (6.0.2.2) lib/active_record/transactions.rb:366:in `with_transaction_returning_status'
+activerecord (6.0.2.2) lib/active_record/transactions.rb:315:in `save'
+activerecord (6.0.2.2) lib/active_record/suppressor.rb:44:in `save'
+devise (4.7.1) app/controllers/devise/registrations_controller.rb:19:in `create'
+actionpack (6.0.2.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:196:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.2.2) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (6.0.2.2) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.2.2) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/sign_in" for ::1 at 2020-04-26 22:07:44 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 76)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 971)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 4782)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-04-26 22:07:46 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 75)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1218)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 4974)
+
+
+Started POST "/users" for ::1 at 2020-04-26 22:07:54 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"gzwBaeIsc6mWAl3HTmr7hTrAnoItTZRmTDDw0QJsSb3n/3VtGVc9aBnBA5xD8JfY8ap4uk8JbjGlj0//OzH2zw==", "user"=>{"name"=>"tater", "email"=>"tater@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "tater@gmail.com"], ["encrypted_password", "$2a$11$JIAUu9XN54pTprlA1kWxK.pos/mHLCPxT6tspHIx6pxug8.WsfSo6"], ["created_at", "2020-04-27 02:07:54.166873"], ["updated_at", "2020-04-27 02:07:54.166873"], ["name", "tater"]]
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 164ms (ActiveRecord: 3.8ms | Allocations: 5227)
+
+
+Started GET "/" for ::1 at 2020-04-26 22:07:54 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/rooms/index.html.erb:1
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 2]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of rooms/_room.html.erb [2 times] (Duration: 0.3ms | Allocations: 74)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 2749)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.2ms | ActiveRecord: 1.0ms | Allocations: 6367)
+
+
+Started GET "/rooms/2" for ::1 at 2020-04-26 22:07:55 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRoom Load (3.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [26 times] (Duration: 71.6ms | Allocations: 16998)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 80.6ms | Allocations: 18895)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 112ms (Views: 87.5ms | ActiveRecord: 9.7ms | Allocations: 26803)
+
+
+Started GET "/cable" for ::1 at 2020-04-26 22:07:56 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-26 22:07:56 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci82)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+ChatroomChannel#send_message({"message"=>"tater"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (4.7ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "tater"], ["user_id", 6], ["room_id", 2], ["created_at", "2020-04-27 02:07:58.385127"], ["updated_at", "2020-04-27 02:07:58.385127"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 64bf72b8-35b0-48cc-92ac-577f68982cef) to Async(default) with arguments: #<GlobalID:0x000055aa352c0c10 @uri=#<URI::GID gid://audiotorium/Message/37>>
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [64bf72b8-35b0-48cc-92ac-577f68982cef] Performing MessageJob (Job ID: 64bf72b8-35b0-48cc-92ac-577f68982cef) from Async(default) enqueued at 2020-04-27T02:07:58Z with arguments: #<GlobalID:0x00007f490c7aa510 @uri=#<URI::GID gid://audiotorium/Message/37>>
+[ActiveJob] [MessageJob] [64bf72b8-35b0-48cc-92ac-577f68982cef]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [64bf72b8-35b0-48cc-92ac-577f68982cef]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [64bf72b8-35b0-48cc-92ac-577f68982cef]   Rendered messages/_message.html.erb (Duration: 5.9ms | Allocations: 737)
+[ActiveJob] [MessageJob] [64bf72b8-35b0-48cc-92ac-577f68982cef] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>tater</strong>:\n    <br/>\n    tater\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>tater</strong>:\n    <br/>\n    tater\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [64bf72b8-35b0-48cc-92ac-577f68982cef] Performed MessageJob (Job ID: 64bf72b8-35b0-48cc-92ac-577f68982cef) from Async(default) in 7.94ms
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>tater</strong>:\n    <br/>\n    tater\n  </div>\n</div>\n"} (via streamed from room2_channel)
+ChatroomChannel#send_message({"message"=>"potaterrerererererer"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (6.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "potaterrerererererer"], ["user_id", 4], ["room_id", 2], ["created_at", "2020-04-27 02:08:09.874936"], ["updated_at", "2020-04-27 02:08:09.874936"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 2be1d6fe-6b46-4df1-860c-f2f775cdf15c) to Async(default) with arguments: #<GlobalID:0x00007f490c695c10 @uri=#<URI::GID gid://audiotorium/Message/38>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [2be1d6fe-6b46-4df1-860c-f2f775cdf15c] Performing MessageJob (Job ID: 2be1d6fe-6b46-4df1-860c-f2f775cdf15c) from Async(default) enqueued at 2020-04-27T02:08:09Z with arguments: #<GlobalID:0x00007f49040cb3a0 @uri=#<URI::GID gid://audiotorium/Message/38>>
+[ActiveJob] [MessageJob] [2be1d6fe-6b46-4df1-860c-f2f775cdf15c]   [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [2be1d6fe-6b46-4df1-860c-f2f775cdf15c]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [2be1d6fe-6b46-4df1-860c-f2f775cdf15c]   Rendered messages/_message.html.erb (Duration: 4.4ms | Allocations: 690)
+[ActiveJob] [MessageJob] [2be1d6fe-6b46-4df1-860c-f2f775cdf15c] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>jimbob</strong>:\n    <br/>\n    potaterrerererererer\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>jimbob</strong>:\n    <br/>\n    potaterrerererererer\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [2be1d6fe-6b46-4df1-860c-f2f775cdf15c] Performed MessageJob (Job ID: 2be1d6fe-6b46-4df1-860c-f2f775cdf15c) from Async(default) in 6.23ms
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>jimbob</strong>:\n    <br/>\n    potaterrerererererer\n  </div>\n</div>\n"} (via streamed from room2_channel)
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-26 22:34:43 -0400
+ChatroomChannel stopped streaming from room2_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2020-04-26 22:34:43 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/cable" for ::1 at 2020-04-26 22:34:44 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-26 22:34:44 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable" for 127.0.0.1 at 2020-04-26 22:34:44 -0400
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci82)
+  [1m[36mRoom Load (6.8ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2020-04-26 22:34:44 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci80)
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2020-04-26 23:20:25 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2020-04-26 23:20:25 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6qnCXQ6tEZNyb9JtdSAx5xeKiP67ZiZsWGQMf4+kxb1TJa9nZKM+65WZWYgX0qfpG+/I4PSsM+9GUBhCK/oTUQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 1.1ms | Allocations: 2215)
+
+
+Started GET "/" for 127.0.0.1 at 2020-04-26 23:20:25 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 2]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of rooms/_room.html.erb [2 times] (Duration: 0.3ms | Allocations: 84)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1976)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.9ms | Allocations: 5580)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-04-26 23:20:26 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 76)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 971)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.0ms | Allocations: 4806)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-04-26 23:20:35 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"JUwis0IugzMXdN1PCTyyumdXBqcsaxC2Tp8ZdJ5YyW0i4Wusp/QYPq9C8hDSLJcUMUUq7x9QfmVY0n0iS0HBFA==", "user"=>{"email"=>"jimbob@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "jimbob@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 178ms (ActiveRecord: 0.3ms | Allocations: 3099)
+
+
+Started GET "/" for 127.0.0.1 at 2020-04-26 23:20:35 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/rooms/index.html.erb:1
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 2]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of rooms/_room.html.erb [2 times] (Duration: 0.2ms | Allocations: 74)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 13.5ms | Allocations: 2747)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 2.0ms | Allocations: 6351)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2020-04-26 23:20:37 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [28 times] (Duration: 80.1ms | Allocations: 18382)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 88.6ms | Allocations: 20307)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 123ms (Views: 97.2ms | ActiveRecord: 4.2ms | Allocations: 28248)
+
+
+Started GET "/cable" for 127.0.0.1 at 2020-04-26 23:20:37 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2020-04-26 23:20:37 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci80)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2020-04-26 23:20:41 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/" for 127.0.0.1 at 2020-04-26 23:20:41 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/rooms/index.html.erb:1
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 2]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of rooms/_room.html.erb [2 times] (Duration: 0.3ms | Allocations: 74)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 15.4ms | Allocations: 2748)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.7ms | Allocations: 6358)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2020-04-26 23:20:42 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (1.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  Rendered rooms/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 922)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 5.9ms | Allocations: 5504)
+
+
+  
+ActionView::Template::Error (nil is not a valid asset source):
+    4:   <br/>
+    5: <% end %>
+    6: Currently Playing.. <br/> <%= @room.song_file %> <br/>
+    7: <%= audio_tag(@room.song_file, autoplay: true, controls: true) %>
+    8: <div style="width: 50%; margin-left: auto; margin-right: auto; border: 1px solid black;">
+    9:   <div  id="messages" data-room-id="<%= @room.id %>">
+   10:     <%= render @room.messages.order(created_at: :desc) %>
+  
+app/views/rooms/show.html.erb:7
+Started GET "/" for 127.0.0.1 at 2020-04-26 23:20:45 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/rooms/index.html.erb:1
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 2]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of rooms/_room.html.erb [2 times] (Duration: 0.3ms | Allocations: 74)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 2747)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.7ms | Allocations: 6382)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2020-04-26 23:20:47 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (2.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [28 times] (Duration: 92.2ms | Allocations: 18567)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 100.4ms | Allocations: 20489)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 136ms (Views: 105.9ms | ActiveRecord: 10.2ms | Allocations: 28413)
+
+
+Started GET "/cable" for 127.0.0.1 at 2020-04-26 23:20:47 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2020-04-26 23:20:47 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci80)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
