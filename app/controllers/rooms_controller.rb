@@ -2,23 +2,31 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @rooms=Room.includes(:user).order(:name).all
+    @rooms= Room.includes(:user).order(:name).all
   end
 
   def new
-    @room=Room.new
+    @room= Room.new
   end
 
   def create
-    @room=current_user.rooms.create(room_params)
+    @room= current_user.rooms.create(room_params)
   end
 
   def show
-    @room=Room.includes(:user, :messages).find(params[:id])
+    @room= Room.includes(:user, :messages).find(params[:id])
+  end
+
+  def edit
+    @room = Room.where(user_id: current_user.id).find(params[:id])
+  end
+
+  def update
+    @room = Room.where(user_id: current_user.id).find(params[:id]).update(room_params)
   end
 
   private
   def room_params
-    params.require(:room).permit(:name)
+    params.require(:room).permit(:name, :song_file)
   end
 end

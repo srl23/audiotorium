@@ -1,0 +1,9 @@
+<%=form_for @room do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br/>
+  <%= f.label :song_file %>
+  <%= f.select :song_file, @room.files %>
+  <br/>
+  <%= f.submit %>
+<% end %>
