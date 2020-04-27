@@ -3948,3 +3948,55 @@ Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci80)
   ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
 ChatroomChannel is transmitting the subscription confirmation
 ChatroomChannel is streaming from room2_channel
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-27 06:12:43 -0400
+ChatroomChannel stopped streaming from room2_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2020-04-27 06:12:44 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/cable" for ::1 at 2020-04-27 06:12:44 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-27 06:12:44 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci82)
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+Started GET "/cable" for 127.0.0.1 at 2020-04-27 06:12:44 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2020-04-27 06:12:44 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci80)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-27 06:15:18 -0400
+ChatroomChannel stopped streaming from room2_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2020-04-27 06:15:18 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/cable" for 127.0.0.1 at 2020-04-27 06:15:19 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2020-04-27 06:15:19 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci80)
+Started GET "/cable" for ::1 at 2020-04-27 06:15:19 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-27 06:15:19 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci82)
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-27 06:19:49 -0400
+ChatroomChannel stopped streaming from room2_channel
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from block in execute at /usr/share/rvm/rubies/ruby-2.7.0/lib/ruby/gems/2.7.0/gems/rake-13.0.1/lib/rake/task.rb:281)
