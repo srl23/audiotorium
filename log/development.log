@@ -1892,3 +1892,5 @@ Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8z)
   ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
 ChatroomChannel is transmitting the subscription confirmation
 ChatroomChannel is streaming from room2_channel
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from block in execute at /usr/share/rvm/rubies/ruby-2.7.0/lib/ruby/gems/2.7.0/gems/rake-13.0.1/lib/rake/task.rb:281)

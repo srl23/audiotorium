@@ -1,6 +1,6 @@
 <h1><%= @room.name %></h1>
 <% if current_user == @room.user %>
-  <%= link_to "edit", room_edit_path(@room) %>
+  <%= link_to "edit", edit_room_path(@room) %>
 <% end %>
 Currently Playing.. <br/> <%= @room.song_file %> <br/>
 <%= audio_tag(@room.song_file, autoplay: true, controls: true) %>
