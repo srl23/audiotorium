@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
 
   def create
     @room= current_user.rooms.create(room_params)
+    redirect_to rooms_path
   end
 
   def show
@@ -23,6 +24,7 @@ class RoomsController < ApplicationController
 
   def update
     @room = Room.where(user_id: current_user.id).find(params[:id]).update(room_params)
+    redirect_to rooms_path
   end
 
   private
