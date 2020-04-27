@@ -11,7 +11,8 @@ document.addEventListener("turbolinks:load", function() {
         // Called when the subscription has been terminated by the server
       },
       received(data) {
-        document.getElementById('messages').innerHTML += data.message;
+        const original = document.getElementById('messages').innerHTML;
+        document.getElementById('messages').innerHTML = data.message + original;
       },
       send_message(msg) {
         this.perform('send_message', {

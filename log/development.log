@@ -1894,3 +1894,1365 @@ ChatroomChannel is transmitting the subscription confirmation
 ChatroomChannel is streaming from room2_channel
 DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
  (called from block in execute at /usr/share/rvm/rubies/ruby-2.7.0/lib/ruby/gems/2.7.0/gems/rake-13.0.1/lib/rake/task.rb:281)
+Started GET "/" for ::1 at 2020-04-26 21:36:41 -0400
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/rooms/index.html.erb:1
+  [1m[36mRoom Load (1.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 2]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of rooms/_room.html.erb [2 times] (Duration: 3.2ms | Allocations: 201)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 65.2ms | Allocations: 11837)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 218ms (Views: 176.2ms | ActiveRecord: 11.2ms | Allocations: 34904)
+
+
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:36:49 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [3 times] (Duration: 15.8ms | Allocations: 3284)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 19.8ms | Allocations: 4440)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 83ms (Views: 34.8ms | ActiveRecord: 5.2ms | Allocations: 17173)
+
+
+Started GET "/cable" for ::1 at 2020-04-26 21:36:49 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-26 21:36:49 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8z)
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+ChatroomChannel#send_message({"message"=>"it"})
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "it"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:36:56.226942"], ["updated_at", "2020-04-27 01:36:56.226942"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 2425a661-33b9-4a61-963f-08ebba2eb5a1) to Async(default) with arguments: #<GlobalID:0x00007f490c7b6ce8 @uri=#<URI::GID gid://audiotorium/Message/14>>
+  [1m[36mMessage Load (1.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [2425a661-33b9-4a61-963f-08ebba2eb5a1] Performing MessageJob (Job ID: 2425a661-33b9-4a61-963f-08ebba2eb5a1) from Async(default) enqueued at 2020-04-27T01:36:56Z with arguments: #<GlobalID:0x000055aa352c1278 @uri=#<URI::GID gid://audiotorium/Message/14>>
+[ActiveJob] [MessageJob] [2425a661-33b9-4a61-963f-08ebba2eb5a1]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [2425a661-33b9-4a61-963f-08ebba2eb5a1]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [2425a661-33b9-4a61-963f-08ebba2eb5a1]   Rendered messages/_message.html.erb (Duration: 4.8ms | Allocations: 823)
+[ActiveJob] [MessageJob] [2425a661-33b9-4a61-963f-08ebba2eb5a1] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    it\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    it\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [2425a661-33b9-4a61-963f-08ebba2eb5a1] Performed MessageJob (Job ID: 2425a661-33b9-4a61-963f-08ebba2eb5a1) from Async(default) in 18.23ms
+ChatroomChannel#send_message({"message"=>"is"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (3.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "is"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:36:56.770450"], ["updated_at", "2020-04-27 01:36:56.770450"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: df74a07e-2669-4c43-a316-8276ac88b556) to Async(default) with arguments: #<GlobalID:0x000055aa35303f60 @uri=#<URI::GID gid://audiotorium/Message/15>>
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [df74a07e-2669-4c43-a316-8276ac88b556] Performing MessageJob (Job ID: df74a07e-2669-4c43-a316-8276ac88b556) from Async(default) enqueued at 2020-04-27T01:36:56Z with arguments: #<GlobalID:0x000055aa3530d628 @uri=#<URI::GID gid://audiotorium/Message/15>>
+[ActiveJob] [MessageJob] [df74a07e-2669-4c43-a316-8276ac88b556]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [df74a07e-2669-4c43-a316-8276ac88b556]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [df74a07e-2669-4c43-a316-8276ac88b556]   Rendered messages/_message.html.erb (Duration: 7.6ms | Allocations: 737)
+[ActiveJob] [MessageJob] [df74a07e-2669-4c43-a316-8276ac88b556] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    is\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    is\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [df74a07e-2669-4c43-a316-8276ac88b556] Performed MessageJob (Job ID: df74a07e-2669-4c43-a316-8276ac88b556) from Async(default) in 13.93ms
+ChatroomChannel#send_message({"message"=>"s"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (2.6ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "s"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:36:57.244108"], ["updated_at", "2020-04-27 01:36:57.244108"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 24d6c511-740c-4589-baba-a0f2873f660c) to Async(default) with arguments: #<GlobalID:0x000055aa35317290 @uri=#<URI::GID gid://audiotorium/Message/16>>
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [24d6c511-740c-4589-baba-a0f2873f660c] Performing MessageJob (Job ID: 24d6c511-740c-4589-baba-a0f2873f660c) from Async(default) enqueued at 2020-04-27T01:36:57Z with arguments: #<GlobalID:0x000055aa35308c18 @uri=#<URI::GID gid://audiotorium/Message/16>>
+[ActiveJob] [MessageJob] [24d6c511-740c-4589-baba-a0f2873f660c]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [24d6c511-740c-4589-baba-a0f2873f660c]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [24d6c511-740c-4589-baba-a0f2873f660c]   Rendered messages/_message.html.erb (Duration: 4.7ms | Allocations: 690)
+[ActiveJob] [MessageJob] [24d6c511-740c-4589-baba-a0f2873f660c] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    s\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    s\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [24d6c511-740c-4589-baba-a0f2873f660c] Performed MessageJob (Job ID: 24d6c511-740c-4589-baba-a0f2873f660c) from Async(default) in 6.33ms
+ChatroomChannel#send_message({"message"=>"o"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.6ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "o"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:36:58.336607"], ["updated_at", "2020-04-27 01:36:58.336607"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 3d185651-7bc4-40ce-9be5-1fc182aafe88) to Async(default) with arguments: #<GlobalID:0x000055aa352dadb8 @uri=#<URI::GID gid://audiotorium/Message/17>>
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [3d185651-7bc4-40ce-9be5-1fc182aafe88] Performing MessageJob (Job ID: 3d185651-7bc4-40ce-9be5-1fc182aafe88) from Async(default) enqueued at 2020-04-27T01:36:58Z with arguments: #<GlobalID:0x000055aa352cf468 @uri=#<URI::GID gid://audiotorium/Message/17>>
+[ActiveJob] [MessageJob] [3d185651-7bc4-40ce-9be5-1fc182aafe88]   [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [3d185651-7bc4-40ce-9be5-1fc182aafe88]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [3d185651-7bc4-40ce-9be5-1fc182aafe88]   Rendered messages/_message.html.erb (Duration: 5.8ms | Allocations: 690)
+[ActiveJob] [MessageJob] [3d185651-7bc4-40ce-9be5-1fc182aafe88] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    o\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    o\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [3d185651-7bc4-40ce-9be5-1fc182aafe88] Performed MessageJob (Job ID: 3d185651-7bc4-40ce-9be5-1fc182aafe88) from Async(default) in 9.57ms
+ChatroomChannel#send_message({"message"=>"goooooood"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (1.9ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "goooooood"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:36:59.822700"], ["updated_at", "2020-04-27 01:36:59.822700"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 14bf9e93-0eba-4499-b373-080173569e2e) to Async(default) with arguments: #<GlobalID:0x00007f490c71aa78 @uri=#<URI::GID gid://audiotorium/Message/18>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [14bf9e93-0eba-4499-b373-080173569e2e] Performing MessageJob (Job ID: 14bf9e93-0eba-4499-b373-080173569e2e) from Async(default) enqueued at 2020-04-27T01:36:59Z with arguments: #<GlobalID:0x00007f490c7007e0 @uri=#<URI::GID gid://audiotorium/Message/18>>
+[ActiveJob] [MessageJob] [14bf9e93-0eba-4499-b373-080173569e2e]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [14bf9e93-0eba-4499-b373-080173569e2e]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [14bf9e93-0eba-4499-b373-080173569e2e]   Rendered messages/_message.html.erb (Duration: 7.6ms | Allocations: 690)
+[ActiveJob] [MessageJob] [14bf9e93-0eba-4499-b373-080173569e2e] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    goooooood\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    goooooood\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [14bf9e93-0eba-4499-b373-080173569e2e] Performed MessageJob (Job ID: 14bf9e93-0eba-4499-b373-080173569e2e) from Async(default) in 9.96ms
+ChatroomChannel#send_message({"message"=>"asd"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (1.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (1.0ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "asd"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:37:03.553074"], ["updated_at", "2020-04-27 01:37:03.553074"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: e71aa92e-115d-45fd-9fde-935fab438f78) to Async(default) with arguments: #<GlobalID:0x00007f49040c8ad8 @uri=#<URI::GID gid://audiotorium/Message/19>>
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [e71aa92e-115d-45fd-9fde-935fab438f78] Performing MessageJob (Job ID: e71aa92e-115d-45fd-9fde-935fab438f78) from Async(default) enqueued at 2020-04-27T01:37:03Z with arguments: #<GlobalID:0x00007f490407ed70 @uri=#<URI::GID gid://audiotorium/Message/19>>
+[ActiveJob] [MessageJob] [e71aa92e-115d-45fd-9fde-935fab438f78]   [1m[36mUser Load (12.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [e71aa92e-115d-45fd-9fde-935fab438f78]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [e71aa92e-115d-45fd-9fde-935fab438f78]   Rendered messages/_message.html.erb (Duration: 15.1ms | Allocations: 690)
+[ActiveJob] [MessageJob] [e71aa92e-115d-45fd-9fde-935fab438f78] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    asd\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    asd\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [e71aa92e-115d-45fd-9fde-935fab438f78] Performed MessageJob (Job ID: e71aa92e-115d-45fd-9fde-935fab438f78) from Async(default) in 16.88ms
+ChatroomChannel#send_message({"message"=>"f"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (1.9ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "f"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:37:06.378310"], ["updated_at", "2020-04-27 01:37:06.378310"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 93eaafe0-664f-4165-91dc-8f4ca9018de8) to Async(default) with arguments: #<GlobalID:0x00007f490817cc50 @uri=#<URI::GID gid://audiotorium/Message/20>>
+  [1m[36mMessage Load (1.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [93eaafe0-664f-4165-91dc-8f4ca9018de8] Performing MessageJob (Job ID: 93eaafe0-664f-4165-91dc-8f4ca9018de8) from Async(default) enqueued at 2020-04-27T01:37:06Z with arguments: #<GlobalID:0x00007f4908162378 @uri=#<URI::GID gid://audiotorium/Message/20>>
+[ActiveJob] [MessageJob] [93eaafe0-664f-4165-91dc-8f4ca9018de8]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [93eaafe0-664f-4165-91dc-8f4ca9018de8]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [93eaafe0-664f-4165-91dc-8f4ca9018de8]   Rendered messages/_message.html.erb (Duration: 3.9ms | Allocations: 690)
+[ActiveJob] [MessageJob] [93eaafe0-664f-4165-91dc-8f4ca9018de8] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    f\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    f\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [93eaafe0-664f-4165-91dc-8f4ca9018de8] Performed MessageJob (Job ID: 93eaafe0-664f-4165-91dc-8f4ca9018de8) from Async(default) in 5.6ms
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:38:29 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [10 times] (Duration: 24.8ms | Allocations: 6673)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 27.1ms | Allocations: 7794)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 80ms (Views: 41.6ms | ActiveRecord: 1.3ms | Allocations: 16533)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-26 21:38:30 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/cable" for ::1 at 2020-04-26 21:38:30 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-26 21:38:30 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8z)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+ChatroomChannel#send_message({"message"=>"it"})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (6.7ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "it"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:38:33.654648"], ["updated_at", "2020-04-27 01:38:33.654648"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: d080d577-5074-4259-b980-780fbacd86b8) to Async(default) with arguments: #<GlobalID:0x00007f490c2cdad8 @uri=#<URI::GID gid://audiotorium/Message/21>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [d080d577-5074-4259-b980-780fbacd86b8] Performing MessageJob (Job ID: d080d577-5074-4259-b980-780fbacd86b8) from Async(default) enqueued at 2020-04-27T01:38:33Z with arguments: #<GlobalID:0x00007f490c2a0600 @uri=#<URI::GID gid://audiotorium/Message/21>>
+[ActiveJob] [MessageJob] [d080d577-5074-4259-b980-780fbacd86b8]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [d080d577-5074-4259-b980-780fbacd86b8]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [d080d577-5074-4259-b980-780fbacd86b8]   Rendered messages/_message.html.erb (Duration: 2.5ms | Allocations: 801)
+[ActiveJob] [MessageJob] [d080d577-5074-4259-b980-780fbacd86b8] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    it\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    it\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [d080d577-5074-4259-b980-780fbacd86b8] Performed MessageJob (Job ID: d080d577-5074-4259-b980-780fbacd86b8) from Async(default) in 9.77ms
+ChatroomChannel#send_message({"message"=>"is"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (1.9ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "is"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:38:34.182995"], ["updated_at", "2020-04-27 01:38:34.182995"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 23a4036c-8a2b-4f04-b53c-aaf01d64b169) to Async(default) with arguments: #<GlobalID:0x00007f490c1c0a28 @uri=#<URI::GID gid://audiotorium/Message/22>>
+  [1m[36mMessage Load (3.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [23a4036c-8a2b-4f04-b53c-aaf01d64b169] Performing MessageJob (Job ID: 23a4036c-8a2b-4f04-b53c-aaf01d64b169) from Async(default) enqueued at 2020-04-27T01:38:34Z with arguments: #<GlobalID:0x00007f490c187430 @uri=#<URI::GID gid://audiotorium/Message/22>>
+[ActiveJob] [MessageJob] [23a4036c-8a2b-4f04-b53c-aaf01d64b169]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [23a4036c-8a2b-4f04-b53c-aaf01d64b169]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [23a4036c-8a2b-4f04-b53c-aaf01d64b169]   Rendered messages/_message.html.erb (Duration: 4.5ms | Allocations: 690)
+[ActiveJob] [MessageJob] [23a4036c-8a2b-4f04-b53c-aaf01d64b169] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    is\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    is\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [23a4036c-8a2b-4f04-b53c-aaf01d64b169] Performed MessageJob (Job ID: 23a4036c-8a2b-4f04-b53c-aaf01d64b169) from Async(default) in 8.93ms
+ChatroomChannel#send_message({"message"=>"centered!"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (4.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "centered!"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:38:35.689577"], ["updated_at", "2020-04-27 01:38:35.689577"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 93983191-d393-4cad-9e67-5b6107fdd38f) to Async(default) with arguments: #<GlobalID:0x000055aa34a58cd0 @uri=#<URI::GID gid://audiotorium/Message/23>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [93983191-d393-4cad-9e67-5b6107fdd38f] Performing MessageJob (Job ID: 93983191-d393-4cad-9e67-5b6107fdd38f) from Async(default) enqueued at 2020-04-27T01:38:35Z with arguments: #<GlobalID:0x000055aa349bc510 @uri=#<URI::GID gid://audiotorium/Message/23>>
+[ActiveJob] [MessageJob] [93983191-d393-4cad-9e67-5b6107fdd38f]   [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [93983191-d393-4cad-9e67-5b6107fdd38f]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [93983191-d393-4cad-9e67-5b6107fdd38f]   Rendered messages/_message.html.erb (Duration: 8.5ms | Allocations: 690)
+[ActiveJob] [MessageJob] [93983191-d393-4cad-9e67-5b6107fdd38f] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    centered!\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    centered!\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [93983191-d393-4cad-9e67-5b6107fdd38f] Performed MessageJob (Job ID: 93983191-d393-4cad-9e67-5b6107fdd38f) from Async(default) in 10.38ms
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:41:04 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (1.7ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  Rendered rooms/show.html.erb within layouts/application (Duration: 682.4ms | Allocations: 139986)
+Completed 500 Internal Server Error in 723ms (ActiveRecord: 2.4ms | Allocations: 145465)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `desc' for #<#<Class:0x000055aa353152b0>:0x000055aa3530f6d0>):
+     7: <%= audio_tag(@room.song_file, autoplay: true, controls: true) %>
+     8: <div style="width: 50%; margin-left: auto; margin-right: auto; border: 1px solid black; overflow: scroll">
+     9:   <div  id="messages" data-room-id="<%= @room.id %>">
+    10:     <%= render @room.messages.order(created_at: desc) %>
+    11:   </div>
+    12: </div>
+    13: <form>
+  
+app/views/rooms/show.html.erb:10
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-26 21:41:06 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:41:14 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (4.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (3.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [13 times] (Duration: 51.5ms | Allocations: 8617)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 66.0ms | Allocations: 10741)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 109ms (Views: 80.1ms | ActiveRecord: 11.4ms | Allocations: 19612)
+
+
+Started GET "/cable" for ::1 at 2020-04-26 21:41:15 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-26 21:41:15 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8z)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+ChatroomChannel#send_message({"message"=>"this"})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (3.0ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "this"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:41:21.898727"], ["updated_at", "2020-04-27 01:41:21.898727"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 49acc51f-1ac2-4ada-a2f4-6384de37c8f1) to Async(default) with arguments: #<GlobalID:0x000055aa33b94190 @uri=#<URI::GID gid://audiotorium/Message/24>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [49acc51f-1ac2-4ada-a2f4-6384de37c8f1] Performing MessageJob (Job ID: 49acc51f-1ac2-4ada-a2f4-6384de37c8f1) from Async(default) enqueued at 2020-04-27T01:41:21Z with arguments: #<GlobalID:0x000055aa338f6ed8 @uri=#<URI::GID gid://audiotorium/Message/24>>
+[ActiveJob] [MessageJob] [49acc51f-1ac2-4ada-a2f4-6384de37c8f1]   [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [49acc51f-1ac2-4ada-a2f4-6384de37c8f1]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [49acc51f-1ac2-4ada-a2f4-6384de37c8f1]   Rendered messages/_message.html.erb (Duration: 6.1ms | Allocations: 800)
+[ActiveJob] [MessageJob] [49acc51f-1ac2-4ada-a2f4-6384de37c8f1] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    this\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    this\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [49acc51f-1ac2-4ada-a2f4-6384de37c8f1] Performed MessageJob (Job ID: 49acc51f-1ac2-4ada-a2f4-6384de37c8f1) from Async(default) in 9.04ms
+ChatroomChannel#send_message({"message"=>"is"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "is"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:41:22.455424"], ["updated_at", "2020-04-27 01:41:22.455424"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: d1d82363-1136-4de8-b4e5-202fdc762737) to Async(default) with arguments: #<GlobalID:0x00007f490c803d90 @uri=#<URI::GID gid://audiotorium/Message/25>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [d1d82363-1136-4de8-b4e5-202fdc762737] Performing MessageJob (Job ID: d1d82363-1136-4de8-b4e5-202fdc762737) from Async(default) enqueued at 2020-04-27T01:41:22Z with arguments: #<GlobalID:0x00007f490c7f11e0 @uri=#<URI::GID gid://audiotorium/Message/25>>
+[ActiveJob] [MessageJob] [d1d82363-1136-4de8-b4e5-202fdc762737]   [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [d1d82363-1136-4de8-b4e5-202fdc762737]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [d1d82363-1136-4de8-b4e5-202fdc762737]   Rendered messages/_message.html.erb (Duration: 7.4ms | Allocations: 690)
+[ActiveJob] [MessageJob] [d1d82363-1136-4de8-b4e5-202fdc762737] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    is\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    is\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [d1d82363-1136-4de8-b4e5-202fdc762737] Performed MessageJob (Job ID: d1d82363-1136-4de8-b4e5-202fdc762737) from Async(default) in 9.23ms
+ChatroomChannel#send_message({"message"=>"sparta!"})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "sparta!"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:41:23.829835"], ["updated_at", "2020-04-27 01:41:23.829835"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (4.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: c7e1bdc2-b89f-4fe1-a549-b07ec0103da3) to Async(default) with arguments: #<GlobalID:0x00007f490c7b7eb8 @uri=#<URI::GID gid://audiotorium/Message/26>>
+  [1m[36mMessage Load (1.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [c7e1bdc2-b89f-4fe1-a549-b07ec0103da3] Performing MessageJob (Job ID: c7e1bdc2-b89f-4fe1-a549-b07ec0103da3) from Async(default) enqueued at 2020-04-27T01:41:23Z with arguments: #<GlobalID:0x00007f490c792410 @uri=#<URI::GID gid://audiotorium/Message/26>>
+[ActiveJob] [MessageJob] [c7e1bdc2-b89f-4fe1-a549-b07ec0103da3]   [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [c7e1bdc2-b89f-4fe1-a549-b07ec0103da3]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [c7e1bdc2-b89f-4fe1-a549-b07ec0103da3]   Rendered messages/_message.html.erb (Duration: 7.3ms | Allocations: 690)
+[ActiveJob] [MessageJob] [c7e1bdc2-b89f-4fe1-a549-b07ec0103da3] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    sparta!\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    sparta!\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [c7e1bdc2-b89f-4fe1-a549-b07ec0103da3] Performed MessageJob (Job ID: c7e1bdc2-b89f-4fe1-a549-b07ec0103da3) from Async(default) in 9.59ms
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:41:27 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [16 times] (Duration: 84.1ms | Allocations: 10442)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 93.0ms | Allocations: 12240)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 136ms (Views: 110.0ms | ActiveRecord: 6.2ms | Allocations: 19981)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-26 21:41:27 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/cable" for ::1 at 2020-04-26 21:41:27 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-26 21:41:27 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8z)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:41:57 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (2.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (4.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [16 times] (Duration: 57.5ms | Allocations: 10441)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 66.7ms | Allocations: 12227)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 140ms (Views: 111.0ms | ActiveRecord: 10.1ms | Allocations: 28364)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-26 21:41:57 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/cable" for ::1 at 2020-04-26 21:41:57 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-26 21:41:57 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8z)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+ChatroomChannel#send_message({"message"=>"weee!"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "weee!"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:42:02.067398"], ["updated_at", "2020-04-27 01:42:02.067398"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 67436602-4a76-431a-aab5-b0dd994cae84) to Async(default) with arguments: #<GlobalID:0x000055aa3462ea10 @uri=#<URI::GID gid://audiotorium/Message/27>>
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [67436602-4a76-431a-aab5-b0dd994cae84] Performing MessageJob (Job ID: 67436602-4a76-431a-aab5-b0dd994cae84) from Async(default) enqueued at 2020-04-27T01:42:02Z with arguments: #<GlobalID:0x000055aa34596210 @uri=#<URI::GID gid://audiotorium/Message/27>>
+[ActiveJob] [MessageJob] [67436602-4a76-431a-aab5-b0dd994cae84]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [67436602-4a76-431a-aab5-b0dd994cae84]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [67436602-4a76-431a-aab5-b0dd994cae84]   Rendered messages/_message.html.erb (Duration: 5.7ms | Allocations: 690)
+[ActiveJob] [MessageJob] [67436602-4a76-431a-aab5-b0dd994cae84] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    weee!\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    weee!\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [67436602-4a76-431a-aab5-b0dd994cae84] Performed MessageJob (Job ID: 67436602-4a76-431a-aab5-b0dd994cae84) from Async(default) in 7.93ms
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:42:08 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (5.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (2.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [17 times] (Duration: 64.9ms | Allocations: 11088)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 72.8ms | Allocations: 12889)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 108ms (Views: 78.5ms | ActiveRecord: 14.3ms | Allocations: 20629)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-26 21:42:08 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/cable" for ::1 at 2020-04-26 21:42:08 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-26 21:42:08 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8z)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:43:43 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (2.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [17 times] (Duration: 52.5ms | Allocations: 11088)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 62.3ms | Allocations: 12890)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srl23/Development/audiotorium/public/packs
+[Webpacker] Hash: 78d3ce0bd9c31085e18f
+Version: webpack 4.43.0
+Time: 1902ms
+Built at: 04/26/2020 9:43:47 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-3f47fea1181282116f12.js    129 KiB  application  [emitted] [immutable]  application
+js/application-3f47fea1181282116f12.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-3f47fea1181282116f12.js js/application-3f47fea1181282116f12.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 186 bytes {application} [built]
+[./app/javascript/channels/chatroom_channel.js] 4.02 KiB {application} [optional] [built] [failed] [1 error]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+WARNING in ./app/javascript/channels/chatroom_channel.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /home/srl23/Development/audiotorium/app/javascript/channels/chatroom_channel.js: Unexpected token (15:71)
+
+  13 |       received(data) {
+  14 |         const original = document.getElementById('messages').innerHTML;
+> 15 |         document.getElementById('messages').innerHTML = data.message + const;
+     |                                                                        ^
+  16 |       },
+  17 |       send_message(msg) {
+  18 |         this.perform('send_message', {
+    at Parser._raise (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:742:17)
+    at Parser.raiseWithData (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:735:17)
+    at Parser.raise (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:729:17)
+    at Parser.unexpected (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:8757:16)
+    at Parser.parseExprAtom (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:10052:20)
+    at Parser.parseExprSubscripts (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9602:23)
+    at Parser.parseMaybeUnary (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9582:21)
+    at Parser.parseExprOpBaseRightExpr (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9545:34)
+    at Parser.parseExprOpRightExpr (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9538:21)
+    at Parser.parseExprOp (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9504:27)
+    at Parser.parseExprOps (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9462:17)
+    at Parser.parseMaybeConditional (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9425:23)
+    at Parser.parseMaybeAssign (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9380:21)
+    at Parser.parseMaybeAssign (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9412:25)
+    at Parser.parseExpression (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9332:23)
+    at Parser.parseStatementContent (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:11210:23)
+    at Parser.parseStatement (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:11081:17)
+    at Parser.parseBlockOrModuleBlockBody (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:11656:25)
+    at Parser.parseBlockBody (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:11642:10)
+    at Parser.parseBlock (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:11626:10)
+    at Parser.parseFunctionBody (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:10634:24)
+    at Parser.parseFunctionBodyAndFinish (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:10617:10)
+    at Parser.parseMethod (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:10579:10)
+    at Parser.parseObjectMethod (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:10495:19)
+    at Parser.parseObjPropValue (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:10537:23)
+    at Parser.parseObjectMember (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:10461:10)
+    at Parser.parseObj (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:10374:25)
+    at Parser.parseExprAtom (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9995:28)
+    at Parser.parseExprSubscripts (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9602:23)
+    at Parser.parseMaybeUnary (/home/srl23/Development/audiotorium/node_modules/@babel/parser/lib/index.js:9582:21)
+ @ ./app/javascript/channels sync _channel\.js$ ./chatroom_channel.js
+ @ ./app/javascript/channels/index.js
+ @ ./app/javascript/packs/application.js
+
+Completed 200 OK in 4627ms (Views: 4602.9ms | ActiveRecord: 7.7ms | Allocations: 22229)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-26 21:43:48 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:43:52 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (2.0ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [17 times] (Duration: 86.7ms | Allocations: 11088)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 93.9ms | Allocations: 12888)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 138ms (Views: 111.4ms | ActiveRecord: 13.1ms | Allocations: 20614)
+
+
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:43:58 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (2.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (1.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (1.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [17 times] (Duration: 61.7ms | Allocations: 11088)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 70.3ms | Allocations: 12888)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 104ms (Views: 78.4ms | ActiveRecord: 11.9ms | Allocations: 20627)
+
+
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:44:39 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (1.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (1.6ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [17 times] (Duration: 63.0ms | Allocations: 11088)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 74.9ms | Allocations: 12891)
+[Webpacker] Compiling...
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:44:42 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (9.8ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (9.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (12.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [17 times] (Duration: 151.9ms | Allocations: 11088)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 182.6ms | Allocations: 12890)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/srl23/Development/audiotorium/public/packs
+[Webpacker] Hash: 403fb95b8952805909fd
+Version: webpack 4.43.0
+Time: 2052ms
+Built at: 04/26/2020 9:44:43 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-5dfe12c7da28b2ba7b8c.js    147 KiB  application  [emitted] [immutable]  application
+js/application-5dfe12c7da28b2ba7b8c.js.map    164 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-5dfe12c7da28b2ba7b8c.js js/application-5dfe12c7da28b2ba7b8c.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 186 bytes {application} [built]
+[./app/javascript/channels/chatroom_channel.js] 1.19 KiB {application} [optional] [built]
+[./app/javascript/channels/consumer.js] 265 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 4 hidden modules
+
+Completed 200 OK in 4192ms (Views: 4161.0ms | ActiveRecord: 8.6ms | Allocations: 43881)
+
+
+[Webpacker] Compiled all packs in /home/srl23/Development/audiotorium/public/packs
+[Webpacker] Hash: 403fb95b8952805909fd
+Version: webpack 4.43.0
+Time: 1198ms
+Built at: 04/26/2020 9:44:46 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-5dfe12c7da28b2ba7b8c.js    147 KiB  application  [emitted] [immutable]  application
+js/application-5dfe12c7da28b2ba7b8c.js.map    164 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-5dfe12c7da28b2ba7b8c.js js/application-5dfe12c7da28b2ba7b8c.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 186 bytes {application} [built]
+[./app/javascript/channels/chatroom_channel.js] 1.19 KiB {application} [optional] [built]
+[./app/javascript/channels/consumer.js] 265 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 4 hidden modules
+
+Completed 200 OK in 3916ms (Views: 3849.4ms | ActiveRecord: 35.9ms | Allocations: 23838)
+
+
+Started GET "/cable" for ::1 at 2020-04-26 21:44:46 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-26 21:44:46 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8z)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+ChatroomChannel#send_message({"message"=>"wee"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (2.5ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "wee"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:44:50.387849"], ["updated_at", "2020-04-27 01:44:50.387849"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: f647b53b-7f3c-44bd-aea4-dd05480869dc) to Async(default) with arguments: #<GlobalID:0x00007f490c27d448 @uri=#<URI::GID gid://audiotorium/Message/28>>
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [f647b53b-7f3c-44bd-aea4-dd05480869dc] Performing MessageJob (Job ID: f647b53b-7f3c-44bd-aea4-dd05480869dc) from Async(default) enqueued at 2020-04-27T01:44:50Z with arguments: #<GlobalID:0x00007f48f40160c8 @uri=#<URI::GID gid://audiotorium/Message/28>>
+[ActiveJob] [MessageJob] [f647b53b-7f3c-44bd-aea4-dd05480869dc]   [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [f647b53b-7f3c-44bd-aea4-dd05480869dc]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [f647b53b-7f3c-44bd-aea4-dd05480869dc]   Rendered messages/_message.html.erb (Duration: 4.0ms | Allocations: 690)
+[ActiveJob] [MessageJob] [f647b53b-7f3c-44bd-aea4-dd05480869dc] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    wee\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    wee\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [f647b53b-7f3c-44bd-aea4-dd05480869dc] Performed MessageJob (Job ID: f647b53b-7f3c-44bd-aea4-dd05480869dc) from Async(default) in 10.89ms
+ChatroomChannel#send_message({"message"=>"oh"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (1.5ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (2.8ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "oh"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:44:52.035026"], ["updated_at", "2020-04-27 01:44:52.035026"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: b9c136ac-e1e1-42d1-b34a-346f22c10d1f) to Async(default) with arguments: #<GlobalID:0x00007f490c1486e0 @uri=#<URI::GID gid://audiotorium/Message/29>>
+  [1m[36mMessage Load (0.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [b9c136ac-e1e1-42d1-b34a-346f22c10d1f] Performing MessageJob (Job ID: b9c136ac-e1e1-42d1-b34a-346f22c10d1f) from Async(default) enqueued at 2020-04-27T01:44:52Z with arguments: #<GlobalID:0x00007f490c0e19b8 @uri=#<URI::GID gid://audiotorium/Message/29>>
+[ActiveJob] [MessageJob] [b9c136ac-e1e1-42d1-b34a-346f22c10d1f]   [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [b9c136ac-e1e1-42d1-b34a-346f22c10d1f]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [b9c136ac-e1e1-42d1-b34a-346f22c10d1f]   Rendered messages/_message.html.erb (Duration: 4.9ms | Allocations: 690)
+[ActiveJob] [MessageJob] [b9c136ac-e1e1-42d1-b34a-346f22c10d1f] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    oh\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    oh\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [b9c136ac-e1e1-42d1-b34a-346f22c10d1f] Performed MessageJob (Job ID: b9c136ac-e1e1-42d1-b34a-346f22c10d1f) from Async(default) in 6.52ms
+ChatroomChannel#send_message({"message"=>"my"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (4.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "my"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:44:52.742616"], ["updated_at", "2020-04-27 01:44:52.742616"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 340915f6-a7b1-43e3-846d-f5a5815a49af) to Async(default) with arguments: #<GlobalID:0x000055aa34828758 @uri=#<URI::GID gid://audiotorium/Message/30>>
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [340915f6-a7b1-43e3-846d-f5a5815a49af] Performing MessageJob (Job ID: 340915f6-a7b1-43e3-846d-f5a5815a49af) from Async(default) enqueued at 2020-04-27T01:44:52Z with arguments: #<GlobalID:0x000055aa3471c0f8 @uri=#<URI::GID gid://audiotorium/Message/30>>
+[ActiveJob] [MessageJob] [340915f6-a7b1-43e3-846d-f5a5815a49af]   [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [340915f6-a7b1-43e3-846d-f5a5815a49af]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [340915f6-a7b1-43e3-846d-f5a5815a49af]   Rendered messages/_message.html.erb (Duration: 4.8ms | Allocations: 690)
+[ActiveJob] [MessageJob] [340915f6-a7b1-43e3-846d-f5a5815a49af] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    my\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    my\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [340915f6-a7b1-43e3-846d-f5a5815a49af] Performed MessageJob (Job ID: 340915f6-a7b1-43e3-846d-f5a5815a49af) from Async(default) in 10.63ms
+ChatroomChannel#send_message({"message"=>"hourd"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "hourd"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:44:53.466862"], ["updated_at", "2020-04-27 01:44:53.466862"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 5aadbac7-0db7-43b5-a7c1-6e8efaf686a9) to Async(default) with arguments: #<GlobalID:0x000055aa33fba5f8 @uri=#<URI::GID gid://audiotorium/Message/31>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [5aadbac7-0db7-43b5-a7c1-6e8efaf686a9] Performing MessageJob (Job ID: 5aadbac7-0db7-43b5-a7c1-6e8efaf686a9) from Async(default) enqueued at 2020-04-27T01:44:53Z with arguments: #<GlobalID:0x000055aa33ea6e00 @uri=#<URI::GID gid://audiotorium/Message/31>>
+[ActiveJob] [MessageJob] [5aadbac7-0db7-43b5-a7c1-6e8efaf686a9]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [5aadbac7-0db7-43b5-a7c1-6e8efaf686a9]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [5aadbac7-0db7-43b5-a7c1-6e8efaf686a9]   Rendered messages/_message.html.erb (Duration: 4.8ms | Allocations: 690)
+[ActiveJob] [MessageJob] [5aadbac7-0db7-43b5-a7c1-6e8efaf686a9] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    hourd\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    hourd\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [5aadbac7-0db7-43b5-a7c1-6e8efaf686a9] Performed MessageJob (Job ID: 5aadbac7-0db7-43b5-a7c1-6e8efaf686a9) from Async(default) in 8.59ms
+ChatroomChannel#send_message({"message"=>"gourd"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (2.9ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "gourd"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:44:55.590740"], ["updated_at", "2020-04-27 01:44:55.590740"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 8e6684ce-762a-417f-b807-e1b486368a98) to Async(default) with arguments: #<GlobalID:0x000055aa353155a8 @uri=#<URI::GID gid://audiotorium/Message/32>>
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [8e6684ce-762a-417f-b807-e1b486368a98] Performing MessageJob (Job ID: 8e6684ce-762a-417f-b807-e1b486368a98) from Async(default) enqueued at 2020-04-27T01:44:55Z with arguments: #<GlobalID:0x000055aa35300888 @uri=#<URI::GID gid://audiotorium/Message/32>>
+[ActiveJob] [MessageJob] [8e6684ce-762a-417f-b807-e1b486368a98]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [8e6684ce-762a-417f-b807-e1b486368a98]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [8e6684ce-762a-417f-b807-e1b486368a98]   Rendered messages/_message.html.erb (Duration: 4.1ms | Allocations: 690)
+[ActiveJob] [MessageJob] [8e6684ce-762a-417f-b807-e1b486368a98] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    gourd\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    gourd\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [8e6684ce-762a-417f-b807-e1b486368a98] Performed MessageJob (Job ID: 8e6684ce-762a-417f-b807-e1b486368a98) from Async(default) in 6.59ms
+Started GET "/rooms/2" for ::1 at 2020-04-26 21:45:25 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (5.8ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (1.8ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (4.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [22 times] (Duration: 69.2ms | Allocations: 14437)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 79.4ms | Allocations: 16661)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 122ms (Views: 90.3ms | ActiveRecord: 13.9ms | Allocations: 25594)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2020-04-26 21:45:25 -0400
+ChatroomChannel stopped streaming from room2_channel
+Started GET "/cable" for ::1 at 2020-04-26 21:45:25 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-04-26 21:45:25 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci8z)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+ChatroomChannel#send_message({"message"=>"this is awesome"})
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "this is awesome"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:45:29.950930"], ["updated_at", "2020-04-27 01:45:29.950930"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 1093eaf0-e389-4c82-b110-a1aea1583589) to Async(default) with arguments: #<GlobalID:0x00007f48f803a118 @uri=#<URI::GID gid://audiotorium/Message/33>>
+  [1m[36mMessage Load (1.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [1093eaf0-e389-4c82-b110-a1aea1583589] Performing MessageJob (Job ID: 1093eaf0-e389-4c82-b110-a1aea1583589) from Async(default) enqueued at 2020-04-27T01:45:29Z with arguments: #<GlobalID:0x00007f48f8027158 @uri=#<URI::GID gid://audiotorium/Message/33>>
+[ActiveJob] [MessageJob] [1093eaf0-e389-4c82-b110-a1aea1583589]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [1093eaf0-e389-4c82-b110-a1aea1583589]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [1093eaf0-e389-4c82-b110-a1aea1583589]   Rendered messages/_message.html.erb (Duration: 2.7ms | Allocations: 800)
+[ActiveJob] [MessageJob] [1093eaf0-e389-4c82-b110-a1aea1583589] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    this is awesome\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    this is awesome\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [1093eaf0-e389-4c82-b110-a1aea1583589] Performed MessageJob (Job ID: 1093eaf0-e389-4c82-b110-a1aea1583589) from Async(default) in 11.25ms
+Started GET "/" for 127.0.0.1 at 2020-04-26 21:57:50 -0400
+Processing by RoomsController#index as HTML
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (2.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" ORDER BY "rooms"."name" ASC[0m
+  ↳ app/views/rooms/index.html.erb:4
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 2]]
+  ↳ app/views/rooms/index.html.erb:4
+  Rendered collection of rooms/_room.html.erb [2 times] (Duration: 0.8ms | Allocations: 203)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 24.1ms | Allocations: 2467)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 34.2ms | ActiveRecord: 5.9ms | Allocations: 6114)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2020-04-26 21:57:52 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 295)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-04-26 21:57:52 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 512)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 21.1ms | Allocations: 2632)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 41.4ms | ActiveRecord: 0.0ms | Allocations: 7772)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2020-04-26 21:57:55 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.6ms | Allocations: 199)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 115)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.5ms | Allocations: 2053)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 0.0ms | Allocations: 6550)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-04-26 21:58:00 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"N6Itv9A1dNIkc2GwYkv06yKV0/fVjIp1n5an8Gu2jMKDfDufxVzrHIbjXMImEiCQtBZPd2cBs+Spa9juxEUTtA==", "user"=>{"name"=>"jimbob", "email"=>"jimbob@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "jimbob@gmail.com"], ["encrypted_password", "$2a$11$MDj7L3Qp0JsRUPZMZfZWb.ZzExe5cn0X8UwtkyxiYxX335t2kEAG."], ["created_at", "2020-04-27 01:58:01.182746"], ["updated_at", "2020-04-27 01:58:01.182746"], ["name", "jimbob"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/rooms/2
+Completed 302 Found in 228ms (ActiveRecord: 2.2ms | Allocations: 7046)
+
+
+Started GET "/rooms/2" for 127.0.0.1 at 2020-04-26 21:58:01 -0400
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 2]]
+  ↳ app/controllers/rooms_controller.rb:18:in `show'
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1 ORDER BY "messages"."created_at" DESC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/show.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/messages/_message.html.erb:3
+  Rendered collection of messages/_message.html.erb [23 times] (Duration: 54.1ms | Allocations: 14973)
+  Rendered rooms/show.html.erb within layouts/application (Duration: 60.5ms | Allocations: 16829)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 109ms (Views: 76.8ms | ActiveRecord: 4.3ms | Allocations: 24728)
+
+
+Started GET "/cable" for 127.0.0.1 at 2020-04-26 21:58:01 -0400
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2020-04-26 21:58:01 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:9:in `get_user'
+Registered connection (Z2lkOi8vYXVkaW90b3JpdW0vVXNlci80)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:3:in `subscribed'
+ChatroomChannel is transmitting the subscription confirmation
+ChatroomChannel is streaming from room2_channel
+ChatroomChannel#send_message({"message"=>"so"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.7ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "so"], ["user_id", 4], ["room_id", 2], ["created_at", "2020-04-27 01:58:05.385228"], ["updated_at", "2020-04-27 01:58:05.385228"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (4.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 53f2fffa-37de-4cee-b24d-c7496ea6763f) to Async(default) with arguments: #<GlobalID:0x000055aa352f89d0 @uri=#<URI::GID gid://audiotorium/Message/34>>
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [53f2fffa-37de-4cee-b24d-c7496ea6763f] Performing MessageJob (Job ID: 53f2fffa-37de-4cee-b24d-c7496ea6763f) from Async(default) enqueued at 2020-04-27T01:58:05Z with arguments: #<GlobalID:0x00007f490c7f1f78 @uri=#<URI::GID gid://audiotorium/Message/34>>
+[ActiveJob] [MessageJob] [53f2fffa-37de-4cee-b24d-c7496ea6763f]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [53f2fffa-37de-4cee-b24d-c7496ea6763f]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [53f2fffa-37de-4cee-b24d-c7496ea6763f]   Rendered messages/_message.html.erb (Duration: 3.0ms | Allocations: 737)
+[ActiveJob] [MessageJob] [53f2fffa-37de-4cee-b24d-c7496ea6763f] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>jimbob</strong>:\n    <br/>\n    so\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>jimbob</strong>:\n    <br/>\n    so\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [53f2fffa-37de-4cee-b24d-c7496ea6763f] Performed MessageJob (Job ID: 53f2fffa-37de-4cee-b24d-c7496ea6763f) from Async(default) in 8.1ms
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>jimbob</strong>:\n    <br/>\n    so\n  </div>\n</div>\n"} (via streamed from room2_channel)
+ChatroomChannel#send_message({"message"=>"goooooooood"})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.7ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "goooooooood"], ["user_id", 4], ["room_id", 2], ["created_at", "2020-04-27 01:58:06.894450"], ["updated_at", "2020-04-27 01:58:06.894450"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: 1a677388-d6b0-49c5-a3ff-636bf4e93c35) to Async(default) with arguments: #<GlobalID:0x00007f490c780530 @uri=#<URI::GID gid://audiotorium/Message/35>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [1a677388-d6b0-49c5-a3ff-636bf4e93c35] Performing MessageJob (Job ID: 1a677388-d6b0-49c5-a3ff-636bf4e93c35) from Async(default) enqueued at 2020-04-27T01:58:06Z with arguments: #<GlobalID:0x00007f490c73df00 @uri=#<URI::GID gid://audiotorium/Message/35>>
+[ActiveJob] [MessageJob] [1a677388-d6b0-49c5-a3ff-636bf4e93c35]   [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [1a677388-d6b0-49c5-a3ff-636bf4e93c35]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [1a677388-d6b0-49c5-a3ff-636bf4e93c35]   Rendered messages/_message.html.erb (Duration: 9.7ms | Allocations: 690)
+[ActiveJob] [MessageJob] [1a677388-d6b0-49c5-a3ff-636bf4e93c35] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>jimbob</strong>:\n    <br/>\n    goooooooood\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>jimbob</strong>:\n    <br/>\n    goooooooood\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [1a677388-d6b0-49c5-a3ff-636bf4e93c35] Performed MessageJob (Job ID: 1a677388-d6b0-49c5-a3ff-636bf4e93c35) from Async(default) in 12.08ms
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>jimbob</strong>:\n    <br/>\n    goooooooood\n  </div>\n</div>\n"} (via streamed from room2_channel)
+ChatroomChannel#send_message({"message"=>"yes1"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[36mMessage Create (0.9ms)[0m  [1m[32mINSERT INTO "messages" ("body", "user_id", "room_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "yes1"], ["user_id", 3], ["room_id", 2], ["created_at", "2020-04-27 01:58:13.784271"], ["updated_at", "2020-04-27 01:58:13.784271"]]
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/channels/chatroom_channel.rb:12:in `send_message'
+[ActiveJob] Enqueued MessageJob (Job ID: f4859780-0915-4373-b994-fb7b06ecf556) to Async(default) with arguments: #<GlobalID:0x00007f490c681530 @uri=#<URI::GID gid://audiotorium/Message/36>>
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [f4859780-0915-4373-b994-fb7b06ecf556] Performing MessageJob (Job ID: f4859780-0915-4373-b994-fb7b06ecf556) from Async(default) enqueued at 2020-04-27T01:58:13Z with arguments: #<GlobalID:0x00007f49040a76f8 @uri=#<URI::GID gid://audiotorium/Message/36>>
+[ActiveJob] [MessageJob] [f4859780-0915-4373-b994-fb7b06ecf556]   [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [MessageJob] [f4859780-0915-4373-b994-fb7b06ecf556]   ↳ app/views/messages/_message.html.erb:3
+[ActiveJob] [MessageJob] [f4859780-0915-4373-b994-fb7b06ecf556]   Rendered messages/_message.html.erb (Duration: 7.9ms | Allocations: 690)
+[ActiveJob] [MessageJob] [f4859780-0915-4373-b994-fb7b06ecf556] [ActionCable] Broadcasting to room2_channel: {:message=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    yes1\n  </div>\n</div>\n"}
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    yes1\n  </div>\n</div>\n"} (via streamed from room2_channel)
+ChatroomChannel transmitting {"message"=>"<div>\n  <div>\n    <strong>potato@potato.com</strong>:\n    <br/>\n    yes1\n  </div>\n</div>\n"} (via streamed from room2_channel)
+[ActiveJob] [MessageJob] [f4859780-0915-4373-b994-fb7b06ecf556] Performed MessageJob (Job ID: f4859780-0915-4373-b994-fb7b06ecf556) from Async(default) in 13.78ms
