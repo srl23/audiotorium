@@ -1,4 +1,6 @@
-# README
+# PLEASE READ ME
+
+When signing up, users do not need to use a valid email address. This is because this is a small project that was never intended to be commercial, but as a project that was made in class over at General Assembly. It will not email you either, as there is no framework in place to actually do that set up to do so. 
 
 Live Link: http://audiotorium.herokuapp.com/
 
